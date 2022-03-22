@@ -47,7 +47,7 @@ function Login(props) {
   return (
     <>
       <CssBaseline />
-      <div className="bg-bgimage  lg:h-screen flex items-center justify-center">
+      <div className="bg-bgimage  h-screen overflow-hidden bg-no-repeat bg-center  flex items-center justify-center">
         <div class={`${showSignUp && "hidden"}`}>
           <Fade duration={1500}>
             <Container maxWidth="md">
@@ -82,7 +82,7 @@ function Login(props) {
                 </Grid>
                 <Grid className="bg-white" item md={6} xs={12}>
                   <div className="flex justify-center mt-16">
-                    <img src="/logo.png" alt="" />
+                    <img src="/Logo.png" alt="" />
                   </div>
                   <div className="mt-4 flex justify-center">
                     <Typography variant="h6" color="#000000C2">
@@ -178,8 +178,8 @@ function Login(props) {
                       </Button>
                       <Button
                         //  class={classes.linkedin}
-                        style={{ backgroundColor: "#2867B2" }}
-                        className={classes.linkedin}
+                        // style={{ backgroundColor: "#2867B2" }}
+                        className="bg-red-500"
                         type="submit"
                         fullWidth
                         variant="contained"
@@ -265,7 +265,7 @@ function Login(props) {
                   </Grid>
                   <Grid className="bg-white" item md={6} xs={12}>
                     <div className="flex justify-center mt-16">
-                      <img src="/logo.png" alt="" />
+                      <img src="/Logo.png" alt="" />
                     </div>
                     <div className="mt-4 flex justify-center">
                       <Typography variant="h6" color="#000000C2">

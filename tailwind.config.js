@@ -2,6 +2,8 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
+
+  important:"#root",
   theme: {
     screens: {
       sm: '640px',
