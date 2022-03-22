@@ -17,7 +17,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { useForm } from "react-hook-form";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "App.css";
-import { Bounce, Fade, Zoom } from "react-reveal";
+
 
 const useStyles = makeStyles(() => ({
   //  container: {"transitionDelay":"300ms","transitionProperty":"background-color, border-color, color, fill, stroke, opacity, box-shadow, transform","transitionDuration":"300ms","transitionTimingFunction":"cubic-bezier(0.4, 0, 0.2, 1)"}
@@ -47,10 +47,9 @@ function Login(props) {
   return (
     <>
       <CssBaseline />
-      <div className="bg-bgimage  h-screen overflow-hidden bg-no-repeat bg-center  flex items-center justify-center">
-        <div class={`${showSignUp && "hidden"}`}>
-          <Fade duration={1500}>
-            <Container maxWidth="md">
+      <div className="bg-bgimage h-full    overflow-auto bg-no-repeat bg-cover   flex items-center justify-center">
+        <div class="my-36">
+            <Container className="h-180 " maxWidth="md">
               <Grid container spacing={0} justify="center">
                 <Grid
                   className="bg-firstGridBg px-4 lg:px-2  hidden lg:grid"
@@ -58,19 +57,19 @@ function Login(props) {
                   md={6}
                   xs={12}
                 >
-                  <div className="flex justify-center mt-24">
-                    <img className="" src="/dotlogo.png" alt="" />
+                  <div className="flex justify-center mx-18 mt-32">
+                    <img className="h-80 w-80"  src="/dotlogo.png" alt="" />
                   </div>
-                  <div className="flex flex-col items-center mt-24 ">
-                    <Typography variant="h6" color="white">
+                  <div className="flex flex-col items-center mt-14 ">
+                    <Typography className="text-center" variant="body1" color="white">
                       WELCOME TO THE MARKETPLACE
                     </Typography>
-                    <div className="mt-6 text-center">
+                    <div className="mt-4 text-center mx-14">
                       <Typography
-                        className=" flex items-center"
-                        variant="p"
+                        className=" flex items-center leading-5"
+                        variant="body2"
                         color="white"
-                        fontSize="medium"
+                        fontSize={14}
                       >
                         Exceptionly provides hands on tested remote software
                         engineers unlike any other outsourcing company. Our
@@ -84,13 +83,14 @@ function Login(props) {
                   <div className="flex justify-center mt-16">
                     <img src="/Logo.png" alt="" />
                   </div>
-                  <div className="mt-4 flex justify-center">
-                    <Typography variant="h6" color="#000000C2">
+                  <div className="mt-6 flex justify-center">
+                    <Typography className="font-normal text-xl"  variant="h6" color="#000000C2">
                       Sign in to your account
                     </Typography>
                   </div>
                   <form onSubmit={handleSubmit(onSubmit)}>
-                    <Box className="px-14" sx={{ mt: 1 }}>
+               <div className={`${showSignUp && "hidden transition-all ease-in-out  delay-300 duration-300"} px-14`}>
+                    <Box >
                       <TextField
                         margin="normal"
                         required
@@ -138,8 +138,9 @@ function Login(props) {
                       <Grid container className="items-center">
                         <Grid item xs>
                           <FormControlLabel
+                          
                             control={
-                              <Checkbox value="remember" color="primary" />
+                              <Checkbox  value="remember" color="primary" />
                             }
                             label="Remember me"
                           />
@@ -154,6 +155,7 @@ function Login(props) {
                       <Button
                         type="submit"
                         fullWidth
+                        
                         variant="contained"
                         sx={{ mt: 3, mb: 2 }}
                       >
@@ -177,9 +179,7 @@ function Login(props) {
                         <span className="ml-1">SIGN IN WITH GOOGLE</span>
                       </Button>
                       <Button
-                        //  class={classes.linkedin}
-                        // style={{ backgroundColor: "#2867B2" }}
-                        className="bg-red-500"
+                        className="bg-linkedinbutton"
                         type="submit"
                         fullWidth
                         variant="contained"
@@ -189,8 +189,8 @@ function Login(props) {
                         <span className="ml-1">SIGN IN WITH LINKEDIN</span>
                       </Button>
                       <Button
-                        className=" flex justify-center items-center"
-                        style={{ backgroundColor: "#F25022" }}
+                        className=" flex justify-center items-center bg-microsoftbutton"
+                        
                         type="submit"
                         fullWidth
                         variant="contained"
@@ -200,80 +200,11 @@ function Login(props) {
                         <span className="ml-1">SIGN IN WITH MICROSOFT</span>
                       </Button>
                     </Box>
-                  </form>
-                  <div className="bg-footerBg py-6 px-10 mt-20">
-                    <Grid container className="items-center">
-                      <Grid item xs>
-                        <Typography variant="p" color="white">
-                          Don't have an account?
-                        </Typography>
-                      </Grid>
-                      <Grid item>
-                        <Typography className=" cursor-pointer" variant="p">
-                          <span
-                            onClick={() => {
-                              setShowSignUp(true);
-                            }}
-                            className="text-createanaccount hover:text-blue-400"
-                          >
-                            CREATE AN ACCOUNT
-                          </span>
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </div>
-                </Grid>
-              </Grid>
-            </Container>
-          </Fade>
-        </div>
+                    </div>
 
-        {/* sign up below */}
-
-        {showSignUp && (
-          <div className="">
-            <Fade duration={1500}>
-              <Container maxWidth="md">
-                <Grid container spacing={0} justify="center">
-                  <Grid
-                    className="bg-firstGridBg px-4 lg:px-2  hidden lg:grid"
-                    item
-                    md={6}
-                    xs={12}
-                  >
-                    <div className="flex justify-center mt-24">
-                      <img className="py-10" src="/dotlogo.png" alt="" />
-                    </div>
-                    <div className="flex flex-col items-center mt-24 ">
-                      <Typography variant="h6" color="white">
-                        WELCOME TO THE MARKETPLACE
-                      </Typography>
-                      <div className="mt-6 text-center">
-                        <Typography
-                          className=" flex items-center"
-                          fontSize="medium"
-                          variant="p"
-                          color="white"
-                        >
-                          Exceptionly provides hands on tested remote software
-                          engineers unlike any other outsourcing company. Our
-                          product delivers talent directly for hiring without a
-                          lifetime markup over 400%
-                        </Typography>
-                      </div>
-                    </div>
-                  </Grid>
-                  <Grid className="bg-white" item md={6} xs={12}>
-                    <div className="flex justify-center mt-16">
-                      <img src="/Logo.png" alt="" />
-                    </div>
-                    <div className="mt-4 flex justify-center">
-                      <Typography variant="h6" color="#000000C2">
-                        Sign in to your account
-                      </Typography>
-                    </div>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                      <Box className="px-14" sx={{ mt: 1 }}>
+{/* sign up below */}
+             <div className={`${!showSignUp && "hidden "}   px-14`}>
+                <Box className="transform transition-all duration-300  ease-out scale-100"  sx={{ mt: 1 }}>
                         <TextField
                           margin="normal"
                           required
@@ -455,34 +386,114 @@ function Login(props) {
                           </Button>
                         </div>
                       </Box>
-                    </form>
-                    <div className="bg-footerBg py-6 px-10 mt-20">
+                      </div>
+
+{/* sign up above */}
+
+                  </form>
+
+                 {!showSignUp && <div className="bg-footerBg py-4  mt-20">
+                    <Grid container className="items-center">
+                      <Grid  item lg={6} className="flex justify-end ">
+                        <Typography variant="body2" color="white">
+                          Don't have an account?
+                        </Typography>
+                      </Grid>
+                      <Grid item lg={6} className="flex justify-start">
+                        <Typography className=" cursor-pointer ml-2" variant="body1">
+                          <span
+                            onClick={() => {
+                              setShowSignUp(true);
+                            }}
+                            className="text-createanaccount text-md hover:text-blue-400 "
+                          >
+                            CREATE AN ACCOUNT
+                          </span>
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </div>}
+
+                  {showSignUp && <div className="bg-footerBg py-4 mt-20">
                       <Grid container className="items-center">
-                        <Grid item xs>
-                          <Typography variant="p" color="white">
+                        <Grid item lg={6} className="flex justify-end ">
+                          <Typography variant="body2" color="white">
                             Already have an account?
                           </Typography>
                         </Grid>
-                        <Grid item>
-                          <Typography className=" cursor-pointer" variant="p">
+                        <Grid item lg={6} className="flex justify-start">
+                          <Typography className=" cursor-pointer" variant="body1">
                             <span
                               onClick={() => {
                                 setShowSignUp(false);
                               }}
-                              className="text-createanaccount hover:text-blue-400"
+                              className="text-createanaccount hover:text-blue-400 ml-2"
                             >
                               SIGN IN HERE
                             </span>
                           </Typography>
                         </Grid>
                       </Grid>
+                    </div>}
+
+                </Grid>
+              </Grid>
+            </Container>
+        </div>
+
+        {/* sign up below */}
+
+       
+          {/* <div className="hidden">
+              <Container maxWidth="md">
+                <Grid container spacing={0} justify="center">
+                  <Grid
+                    className="bg-firstGridBg px-4 lg:px-2  hidden lg:grid"
+                    item
+                    md={6}
+                    xs={12}
+                  >
+                    <div className="flex justify-center mt-24">
+                      <img className="py-10" src="/dotlogo.png" alt="" />
                     </div>
+                    <div className="flex flex-col items-center mt-24 ">
+                      <Typography variant="h6" color="white">
+                        WELCOME TO THE MARKETPLACE
+                      </Typography>
+                      <div className="mt-6 text-center">
+                        <Typography
+                          className=" flex items-center"
+                          fontSize="medium"
+                          variant="p"
+                          color="white"
+                        >
+                          Exceptionly provides hands on tested remote software
+                          engineers unlike any other outsourcing company. Our
+                          product delivers talent directly for hiring without a
+                          lifetime markup over 400%
+                        </Typography>
+                      </div>
+                    </div>
+                  </Grid>
+                  <Grid className="bg-white" item md={6} xs={12}>
+                    <div className="flex justify-center mt-16">
+                      <img src="/Logo.png" alt="" />
+                    </div>
+                    <div className="mt-4 flex justify-center">
+                      <Typography variant="h6" color="#000000C2">
+                        Sign in to your account
+                      </Typography>
+                    </div>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                     
+                    </form>
+                 
+
                   </Grid>
                 </Grid>
               </Container>
-            </Fade>
-          </div>
-        )}
+          </div> */}
+        
         {/* sign up below */}
       </div>
     </>
