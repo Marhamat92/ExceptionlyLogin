@@ -47,10 +47,10 @@ function Login(props) {
   return (
     <>
       <CssBaseline />
-      <div className="bg-bgimage h-full   overflow-auto bg-no-repeat bg-cover   flex items-center justify-center">
-        <div class="my-36">
-            <Container className="h-180 " maxWidth="md">
-              <Grid className="justify-center" container spacing={0} justify="center">
+      <div className="bg-bgimage py-7  overflow-auto h-screen bg-no-repeat bg-cover">
+        <div class="flex items-center justify-center">
+            <Container className="h-full py-12  flex justify-center items-center" maxWidth="md">
+              <Grid className="justify-center" container spacing={0}  justify="center">
                 <Grid
                   className="bg-firstGridBg px-4 lg:px-2  hidden lg:grid  "
                   item
@@ -154,7 +154,7 @@ function Login(props) {
                           />
                         </Grid>
                         <Grid item>
-                          <Link href="#" variant="p">
+                          <Link className="no-underline" href="#" variant="p">
                             Forgot password?
                           </Link>
                         </Grid>
@@ -163,7 +163,7 @@ function Login(props) {
                       <Button
                         type="submit"
                         fullWidth
-                        className="h-9 w-70 bg-googlebutton"
+                        className="h-9 w-70 bg-googlebutton hover:bg-obb-300"
                         
                         sx={{ mt: 6 }}
                       >
@@ -403,7 +403,7 @@ function Login(props) {
                             onClick={() => {
                               setShowSignUp(true);
                             }}
-                            className="-ml-2  text-createanaccount text-md hover:text-blue-400 "
+                            className="lg:-ml-2  text-createanaccount text-md hover:text-blue-400 "
                           >
                             CREATE AN ACCOUNT
                           </span>
@@ -420,7 +420,7 @@ function Login(props) {
                           </Typography>
                         </Grid>
                         <Grid item lg={6}>
-                          <Typography className="-ml-10 text-center cursor-pointer" variant="body1">
+                          <Typography className="lg:-ml-10 text-center cursor-pointer" variant="body1">
                             <span
                               onClick={() => {
                                 setShowSignUp(false);
