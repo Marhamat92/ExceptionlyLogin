@@ -47,12 +47,12 @@ function Login(props) {
   return (
     <>
       <CssBaseline />
-      <div className="bg-bgimage h-full    overflow-auto bg-no-repeat bg-cover   flex items-center justify-center">
+      <div className="bg-bgimage h-full   overflow-auto bg-no-repeat bg-cover   flex items-center justify-center">
         <div class="my-36">
             <Container className="h-180 " maxWidth="md">
-              <Grid container spacing={0} justify="center">
+              <Grid className="justify-center" container spacing={0} justify="center">
                 <Grid
-                  className="bg-firstGridBg px-4 lg:px-2  hidden lg:grid"
+                  className="bg-firstGridBg px-4 lg:px-2  hidden lg:grid  "
                   item
                   md={6}
                   xs={12}
@@ -83,11 +83,19 @@ function Login(props) {
                   <div className="flex justify-center mt-16">
                     <img src="/Logo.png" alt="" />
                   </div>
-                  <div className="mt-6 flex justify-center">
-                    <Typography className="font-normal text-xl"  variant="h6" color="#000000C2">
+
+                 {!showSignUp && <div className="mt-6 flex justify-center">
+                    <Typography className="font-normal text-xl text-secondaryText"  variant="p" >
                       Sign in to your account
                     </Typography>
-                  </div>
+                  </div>}
+
+                 {showSignUp&& <div className="mt-6 flex justify-center">
+                    <Typography className="font-normal text-xl text-secondaryText"  variant="p" >
+                      Sign up to your account
+                    </Typography>
+                  </div>}
+
                   <form onSubmit={handleSubmit(onSubmit)}>
                <div className={`${showSignUp && "hidden transition-all ease-in-out  delay-300 duration-300"} px-14`}>
                     <Box >
@@ -155,28 +163,28 @@ function Login(props) {
                       <Button
                         type="submit"
                         fullWidth
+                        className="h-9 w-70 bg-googlebutton"
                         
-                        variant="contained"
-                        sx={{ mt: 3, mb: 2 }}
+                        sx={{ mt: 6 }}
                       >
-                        Sign In
+                        <span className="font-normal text-white">Sign In</span>
                       </Button>
                       <Typography
-                        className="flex justify-center"
-                        variant="p"
+                        className="flex justify-center mt-4"
+                        variant="body2"
                         color="initial"
                       >
                         OR
                       </Typography>
                       <Button
-                        className="flex justify-center items-center"
+                        className="flex justify-center items-center bg-googlebutton"
                         type="submit"
                         fullWidth
-                        variant="contained"
+                        
                         sx={{ mt: 2 }}
                       >
-                        <GoogleIcon fontSize="medium" />
-                        <span className="ml-1">SIGN IN WITH GOOGLE</span>
+                        <GoogleIcon className="text-white" fontSize="medium" />
+                        <span className="ml-1 font-normal text-white">SIGN IN WITH GOOGLE</span>
                       </Button>
                       <Button
                         className="bg-linkedinbutton"
@@ -186,7 +194,7 @@ function Login(props) {
                         sx={{ mt: 2 }}
                       >
                         <LinkedInIcon fontSize="medium" />
-                        <span className="ml-1">SIGN IN WITH LINKEDIN</span>
+                        <span className="ml-1 font-normal">SIGN IN WITH LINKEDIN</span>
                       </Button>
                       <Button
                         className=" flex justify-center items-center bg-microsoftbutton"
@@ -197,14 +205,14 @@ function Login(props) {
                         sx={{ mt: 2 }}
                       >
                         <i class="ri-microsoft-fill text-xl"></i>
-                        <span className="ml-1">SIGN IN WITH MICROSOFT</span>
+                        <span className="ml-1 font-normal">SIGN IN WITH MICROSOFT</span>
                       </Button>
                     </Box>
                     </div>
 
 {/* sign up below */}
-             <div className={`${!showSignUp && "hidden "}   px-14`}>
-                <Box className="transform transition-all duration-300  ease-out scale-100"  sx={{ mt: 1 }}>
+             <div className={`${!showSignUp ? "hidden opacity-0 " :" flex  opacity-100"} transition delay-300 duration-300   px-14`}>
+                <Box >
                         <TextField
                           margin="normal"
                           required
@@ -340,50 +348,40 @@ function Login(props) {
                         <Button
                           type="submit"
                           fullWidth
-                          variant="contained"
-                          sx={{ mt: 3, mb: 2 }}
+                         className="bg-googlebutton"
+                          sx={{ mt: 5 }}
                         >
-                          SIGN UP
+                         <span className="font-normal text-white">SIGN UP</span> 
                         </Button>
                         <Typography
-                          className="flex justify-center"
-                          variant="p"
+                          className="flex justify-center mt-4"
+                          variant="body2"
                           color="initial"
                         >
                           OR SIGN UP USING
                         </Typography>
                         <div className="flex items-center justify-center space-x-2">
-                          <Button
-                            className="flex justify-center items-center"
+                          <button
+                            className="w-9 h-9 mt-4 rounded-md bg-googlebutton  flex justify-center items-center"
                             type="submit"
-                            variant="contained"
-                            sx={{ mt: 2 }}
+                           
                           >
-                            <GoogleIcon fontSize="small" />
-                          </Button>
-                          <Button
-                            //  class={classes.linkedin}
-                            style={{
-                              backgroundColor: "#2867B2",
-                              maxWidth: "4px",
-                            }}
-                            className=""
+                            <GoogleIcon className="text-white" fontSize="small" />
+                          </button>
+                          <button
+                            
+                            className="w-9 h-9 mt-4 bg-linkedinbutton rounded-md"
                             type="submit"
-                            variant="contained"
-                            sx={{ mt: 2 }}
+                           
                           >
-                            <LinkedInIcon fontSize="small" />
-                          </Button>
-                          <Button
-                            className=" flex justify-center items-center"
-                            style={{ backgroundColor: "#F25022" }}
+                            <LinkedInIcon className="text-white" fontSize="small" />
+                          </button>
+                          <button
+                            className="w-9 h-9 mt-4 rounded-md flex justify-center items-center bg-microsoftbutton"
                             type="submit"
-                            size="small"
-                            variant="contained"
-                            sx={{ mt: 2 }}
                           >
-                            <i class="ri-microsoft-fill text-l"></i>
-                          </Button>
+                            <i class="ri-microsoft-fill text-white text-l"></i>
+                          </button>
                         </div>
                       </Box>
                       </div>
@@ -393,19 +391,19 @@ function Login(props) {
                   </form>
 
                  {!showSignUp && <div className="bg-footerBg py-4  mt-20">
-                    <Grid container className="items-center">
-                      <Grid  item lg={6} className="flex justify-end ">
-                        <Typography variant="body2" color="white">
+                    <Grid container  className="items-center ">
+                      <Grid  item lg={6} >
+                        <Typography variant="body2" className="ml-12" color="white">
                           Don't have an account?
                         </Typography>
                       </Grid>
-                      <Grid item lg={6} className="flex justify-start">
+                      <Grid item lg={6} >
                         <Typography className=" cursor-pointer ml-2" variant="body1">
                           <span
                             onClick={() => {
                               setShowSignUp(true);
                             }}
-                            className="text-createanaccount text-md hover:text-blue-400 "
+                            className="-ml-2  text-createanaccount text-md hover:text-blue-400 "
                           >
                             CREATE AN ACCOUNT
                           </span>
@@ -416,18 +414,18 @@ function Login(props) {
 
                   {showSignUp && <div className="bg-footerBg py-4 mt-20">
                       <Grid container className="items-center">
-                        <Grid item lg={6} className="flex justify-end ">
-                          <Typography variant="body2" color="white">
+                        <Grid item lg={6} >
+                          <Typography className="text-center ml-12"  variant="body2" color="white">
                             Already have an account?
                           </Typography>
                         </Grid>
-                        <Grid item lg={6} className="flex justify-start">
-                          <Typography className=" cursor-pointer" variant="body1">
+                        <Grid item lg={6}>
+                          <Typography className="-ml-10 text-center cursor-pointer" variant="body1">
                             <span
                               onClick={() => {
                                 setShowSignUp(false);
                               }}
-                              className="text-createanaccount hover:text-blue-400 ml-2"
+                              className=" text-createanaccount hover:text-blue-400 ml-2"
                             >
                               SIGN IN HERE
                             </span>

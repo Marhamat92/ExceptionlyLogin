@@ -92,7 +92,9 @@ module.exports = {
        footerBg:"#252525E5",
        createanaccount:"#4285F4",
        linkedinbutton:"#2867B2",
-       microsoftbutton:"#F25022"
+       microsoftbutton:"#F25022",
+       googlebutton:"#4285F4"
+       
       },
     },
   },
