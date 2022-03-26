@@ -93,7 +93,11 @@ module.exports = {
        createanaccount:"#4285F4",
        linkedinbutton:"#2867B2",
        microsoftbutton:"#F25022",
-       googlebutton:"#4285F4"
+       googlebutton:"#4285F4",
+       containerShadow:"rgb(37 37 37)",
+       borderColor:"#F55D55",
+       textWhiteColor:"rgb(255 255 255)",
+       rememberMe:"rgba(0, 0, 0, 0.87)"
        
       },
     },
