@@ -24,6 +24,7 @@ import MicrosoftLogin from "react-microsoft-login";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "App.css";
 import { gapi } from "gapi-script";
+import { Zoom } from "react-reveal";
 // import GoogleLoginButton from "components/GoogleLogin";
 
 const clientId =
@@ -74,7 +75,9 @@ function Login(props) {
   const onSubmit = (data) => console.log(data);
 
   const [right, setRight] = React.useState(false);
-  const tooltipPlacement = right ? "right" : "bottom";
+  const tooltipPlacement = right ? "right" : "top";
+  
+  
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const handlePopper = (event) => {
@@ -129,14 +132,17 @@ function Login(props) {
 
 
   const changeScale=()=>{
-
-    document.getElementById('box').classList.remove('scale-75');
-    document.getElementById('box').classList.add('scale-100');
+if(document.getElementById('box').classList.contains('scale-75')){
+  document.getElementById('box').classList.remove('scale-75');
+  document.getElementById('box').classList.add('scale-100');}
+   
 };
 
 useEffect(()=>{
 
   changeScale();
+
+   
  
     
 })
@@ -150,10 +156,11 @@ useEffect(()=>{
       <CssBaseline />
       <div className="bg-bgimage py-12 px-4   bg-cover flex items-center justify-center max-w-full min-h-screen width-screen">
          {/* <div className="  ">  */}
+        
         <Container
         id="box"
         fixed
-         className= "flex items-center  justify-center transition-transform scale-75   duration-300 ease-out delay-0 min-h-150 "
+         className="flex items-center scale-75   border-transparent rounded-md    justify-center transition-transform   duration-300 ease-out delay-0 min-h-150"
           maxWidth="md"
         >
           <Grid
@@ -163,7 +170,7 @@ useEffect(()=>{
             justify="center"
           >
             <Grid
-              className="bg-firstGridBg px-4 lg:px-2  hidden lg:grid  "
+              className="bg-firstGridBg px-4 lg:px-2  hidden lg:grid "
               item
               md={6}
               xs={12}
@@ -297,7 +304,7 @@ useEffect(()=>{
                     <Button
                       type="submit"
                       fullWidth
-                      className="h-9 w-70 bg-googlebutton hover:bg-obb-300"
+                      className="h-9 w-70 bg-googlebutton transition-all duration-300 hover:bg-blue-600"
                       sx={{ mt: 6 }}
                     >
                       <span className="font-normal text-white">Sign In</span>
@@ -315,7 +322,7 @@ useEffect(()=>{
                         <Button
                           onClick={renderProps.onClick}
                           // isSignedIn={true}
-                          className="flex justify-center items-center bg-googlebutton"
+                          className="flex justify-center items-center transition-all duration-300 bg-googlebutton hover:bg-blue-600"
                           fullWidth
                           sx={{ mt: 2 }}
                         >
@@ -337,7 +344,7 @@ useEffect(()=>{
 
                     <Button
                       onClick={linkedInLogin}
-                      className="bg-linkedinbutton"
+                      className="bg-linkedinbutton shadow-none transition-all duration-300 hover:bg-blue-500"
                       fullWidth
                       variant="contained"
                       sx={{ mt: 2 }}
@@ -353,7 +360,7 @@ useEffect(()=>{
                       authCallback={authHandler}
                     />
                     <Button
-                      className=" flex justify-center items-center bg-microsoftbutton"
+                      className="shadow-none transition-all duration-300 hover:bg-red-400 flex justify-center items-center bg-microsoftbutton"
                       fullWidth
                       variant="contained"
                       sx={{ mt: 2 }}
@@ -459,11 +466,12 @@ useEffect(()=>{
                     />
 
                     <Tooltip
-                    
+                
                       title={
                         "Must contain 8 characters, at least 1 uppercase, 1 lowercase, a number and 1 special character"
                       }
                       placement={tooltipPlacement}
+                      padding
                     >
                       <TextField
                         margin="normal"
@@ -515,7 +523,7 @@ useEffect(()=>{
                     <Button
                       type="submit"
                       fullWidth
-                      className="bg-googlebutton"
+                      className="bg-googlebutton transition-all duration-300  hover:bg-blue-600"
                       sx={{ mt: 5 }}
                     >
                       <span className="font-normal text-white">SIGN UP</span>
@@ -533,10 +541,10 @@ useEffect(()=>{
                           <button
                             onClick={renderProps.onClick}
                             // isSignedIn={true}
-                            className="w-9 h-9 mt-4 rounded-md bg-googlebutton  flex justify-center items-center"
+                            className="w-9 h-9 mt-4 rounded-md bg-googlebutton transition-all duration-300 hover:bg-blue-600 flex justify-center items-center"
                           >
                             <GoogleIcon
-                              className="text-white"
+                              className="text-white "
                               fontSize="small"
                             />
                           </button>
@@ -550,13 +558,13 @@ useEffect(()=>{
 
                       <button
                         onClick={linkedInLogin}
-                        className="w-9 h-9 mt-4 bg-linkedinbutton rounded-md"
+                        className="w-9 h-9 mt-4 bg-linkedinbutton transition-all duration-300 hover:bg-blue-500 rounded-md"
                         type="submit"
                       >
                         <LinkedInIcon className="text-white" fontSize="small" />
                       </button>
                       <button
-                        className="w-9 h-9 mt-4 rounded-md flex justify-center items-center bg-microsoftbutton"
+                        className="w-9 h-9 mt-4 rounded-md flex justify-center items-center transition-all duration-300 hover:bg-red-400 bg-microsoftbutton"
                         type="submit"
                       >
                         <i class="ri-microsoft-fill text-white text-l"></i>
@@ -633,6 +641,7 @@ useEffect(()=>{
             </Grid>
           </Grid>
         </Container>
+      
          {/* </div> */}
 
         {/* sign up below */}
